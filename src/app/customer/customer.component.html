@@ -1,0 +1,25 @@
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container d-flex justify-content-between align-items-center">
+       <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/customer/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/customer/add">Request Loan</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/customer/list">View Requests</a>
+      </li>
+    </ul>
+    <!-- Right section with LogOut button -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <button class="btn btn-danger nav-item logoutItem" (click)="LogOut()">LogOut</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- END OF NAVBAR -->
+<router-outlet></router-outlet>

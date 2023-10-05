@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "PremiumLoans"
+    }
+  },
+  "defaultProject": "PremiumLoans",
+  "cli": {
+    "analytics": false
+  }
 }

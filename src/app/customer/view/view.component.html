@@ -1,0 +1,41 @@
+<div class="container">
+  <table
+    class="table table-dark"
+    style="margin-left: 0%; border: 2px solid black"
+  >
+    <thead>
+      <tr style="border: 2px solid black">
+        <th>ID</th>
+        <th>CustomerID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Amount</th>
+        <th>Loan Type</th>
+        <th>Status</th>
+        <th>Activity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let loan of customerService.loans"
+      >
+        <td>{{ loan.loanId }}</td>
+        <td>{{ loan.customerId }}</td>
+        <td>{{ loan.name }}</td>
+        <td>{{ loan.phone }}</td>
+        <td>{{ loan.amount }}</td>
+        <td>{{ loan.loantype.type }}</td>
+        <td>{{ loan.status.status }}</td>
+        <td>
+          <input
+            type="checkbox"
+            id="isActive"
+            [checked]="loan.active"
+            disabled
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

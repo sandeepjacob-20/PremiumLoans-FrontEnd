@@ -1,0 +1,44 @@
+<div class="container custom-container">
+    <div>
+        <h1 style="text-align: center;">Login</h1>
+    </div>
+    <div>
+        <form [formGroup]="loginform" (ngSubmit)="loginCredentials()">
+            <!-- username -->
+            <div class="form-group">
+                <input type="number" placeholder="Enter LoginID"
+                formControlName="loginId"
+                class="form-control rounded-pill"/>
+            </div>
+            <!-- validation message -->
+            <div *ngIf="isSubmitted && formControls.userName.errors">
+                <div class="validation-error error" *ngIf="formControls.userName.errors.required">
+                    LoginID is invalid or required
+                </div>
+            </div>
+            <br>
+            <!-- password -->
+            <div class="form-group">
+                <input type="password" placeholder="Enter password"
+                formControlName="password"
+                class="form-control rounded-pill"/>
+            </div>
+            <!-- validation message -->
+            <div *ngIf="isSubmitted && formControls.password.errors">
+                <div class="validation-error error" *ngIf="formControls.password.errors.required">
+                    Password is invalid or required
+                </div>
+            </div>
+            <br>
+            <!-- Submit Button -->
+            <br>
+            <div>
+                <button type="submit" class="btn btn-primary form-control pill-button"
+                >Submit</button>
+            </div>
+            <div class="validation-error error" *ngIf="error">
+                {{error}}
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,107 @@
+<div class="container custom-container">
+  <h3 class="heading">ADD NEW LOAN</h3>
+  <hr />
+  <!-- Template Driven Form -->
+  <form
+    name="frmData"
+    #form="ngForm"
+    autocomplete="off"
+    (ngSubmit)="onSubmit(form)"
+  >
+    <!-- Loan Id -->
+    <div class="form-group">
+      <input
+        type="hidden"
+        readonly
+        name="loanId"
+        [(ngModel)]="customerService.formOrderData.loanId"
+      />
+    </div>
+    <!-- Name -->
+    <div class="form-group">
+      <label class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        #name="ngModel"
+        required
+        placeholder="Enter Name"
+        [(ngModel)]="customerService.formOrderData.name"
+      />
+      <!-- Validation Error Message -->
+      <div class="validation-error" *ngIf="name.touched && name.invalid">
+                <div *ngIf="name.errors.required">
+                    Name is invalid or required!</div>
+            </div>
+    </div>
+
+    <!-- Phone -->
+    <div class="form-group">
+      <label class="form-label">Phone Number</label>
+      <input
+        type="text"
+        class="form-control"
+        name="phone"
+        #phone="ngModel"
+        required
+        placeholder="Enter Phone Number"
+        [(ngModel)]="customerService.formOrderData.phone"
+      />
+      <!-- Validation Error Message -->
+      <div class="validation-error" *ngIf="phone.touched && phone.invalid">
+                <div *ngIf="phone.errors.required">
+                    Phone Number is invalid or required!</div>
+            </div>
+    </div>
+    <!-- Loan Amount -->
+    <div class="form-group">
+      <label class="form-label">Loan Amount</label>
+      <input
+        type="number"
+        class="form-control"
+        name="amount"
+        #amount="ngModel"
+        required
+        placeholder="Enter Loan Amount"
+        [(ngModel)]="customerService.formOrderData.amount"
+      />
+      <!-- Validation Error Message -->
+      <div class="validation-error" *ngIf="amount.touched && amount.invalid">
+                <div *ngIf="amount.errors.required">
+                    Loan Amount is invalid or required!</div>
+            </div>
+    </div>
+    
+    <!-- Loan Type -->
+    <div class="form-group">
+      <label>Loan Type</label>
+      <select
+        name="loanTypeId"
+        id="loanTypeId"
+        #loanTypeId="ngModel"
+        [(ngModel)]="customerService.formOrderData.loanTypeId"
+        class="form-control"
+      >
+        <option value=0 selected disabled>
+          ---Select Asset Type-----------
+        </option>
+        <option
+          *ngFor="let type of customerService.loanTypes"
+          value="{{ type.loanTypeId }}"
+        >
+          {{ type.type }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group custom-button">
+      <button
+        type="submit"
+        class="btn btn-lg btn-primary form-control"
+        [disabled]="!(form.valid && form.dirty)"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
